@@ -27,5 +27,5 @@ go run .
 
 ## Todo
 
-[ ] Add bubble sort via my own package
+[ ] Make things better
 
