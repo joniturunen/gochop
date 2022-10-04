@@ -6,11 +6,11 @@ import (
 
 func main() {
 	sugar := initializeLogger().Sugar()
-	sliceOfIntegers := generateSliceOfIntegers(100)
+	sliceOfIntegers := generateSliceOfIntegers(1000000)
 	numberOfInts := len(sliceOfIntegers)
 
 	// Number to search for
-	num := 41
+	num := 415143
 	sugar.Info("Number of indexes ", numberOfInts, ". Number to search for ", num, ".")
 
 	// First implementation
