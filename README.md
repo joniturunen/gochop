@@ -12,7 +12,7 @@ Idea is to implement the same kata in multiple ways, to get a feel for the langu
 
 ```bash
 cd cmd/main
-go test
+go test -v
 ```
 
 ## Running the Code
@@ -25,7 +25,4 @@ go run .
 
 ---
 
-## Todo
-
-[ ] Make things better
 
