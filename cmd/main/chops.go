@@ -14,18 +14,40 @@ func one(num int, slice []int) (int, int) {
 }
 
 // Start binary search from the middle of the slice
-// Runtime complexity: O(log n)
+// Runtime complexity: ???
 func two(num int, slice []int) (int, int) {
-	var numberOfIterations int = 0
-	var n = (len(slice) + 1) / 2
+	numberOfIterations := 0
+	n := (len(slice) + 1) / 2
 	for i := 0; i < len(slice); i++ {
 		numberOfIterations++
 		if slice[n] == num {
 			return n, numberOfIterations
 		} else if slice[n] > num {
-			n = n / 2
+			n--
 		} else {
-			n = n + n/2
+			n++
+		}
+	}
+	return -1, numberOfIterations
+}
+
+// Start binary search from the middle of the slice
+// Runtime complexity: ???
+func three(num int, slice []int) (int, int) {
+	numberOfIterations := 0
+	mid := (len(slice)) / 2
+	max := len(slice)
+	min := 0
+	for i := 0; i < len(slice); i++ {
+		numberOfIterations++
+		if slice[mid] == num {
+			return mid, numberOfIterations
+		} else if slice[mid] > num {
+			max = mid
+			mid = (max + min) / 2
+		} else {
+			min = mid
+			mid = (max + min) / 2
 		}
 	}
 	return -1, numberOfIterations
