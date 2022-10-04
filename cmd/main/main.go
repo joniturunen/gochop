@@ -6,18 +6,22 @@ import (
 
 func main() {
 	sugar := initializeLogger().Sugar()
-	sliceOfIntegers := []int{82, 66, 14, 1, 3, 42, 8, 321, 54, 12, 56, 6, 9}
-	sortedSliceOfInts := bubbleSort(sliceOfIntegers)
+	sliceOfIntegers := generateSliceOfIntegers(100)
+	numberOfInts := len(sliceOfIntegers)
 
 	// Number to search for
-	num := 66
+	num := 41
+	sugar.Info("Number of indexes ", numberOfInts, ". Number to search for ", num, ".")
 
 	// First implementation
-	one, iterations := one(num, sortedSliceOfInts)
+	one, iterations := one(num, sliceOfIntegers)
 	sugar.Info("One: ", one, ". Iterations: ", iterations)
 	// Second implementation
-	two, iterations := two(num, sortedSliceOfInts)
+	two, iterations := two(num, sliceOfIntegers)
 	sugar.Info("Two: ", two, ". Iterations: ", iterations)
+	// Third implementation
+	three, iterations := three(num, sliceOfIntegers)
+	sugar.Info("Three: ", three, ". Iterations: ", iterations)
 }
 
 func initializeLogger() *zap.Logger {
@@ -28,4 +32,12 @@ func initializeLogger() *zap.Logger {
 	logger.Debug("Logger initialized")
 
 	return logger
+}
+
+func generateSliceOfIntegers(size int) []int {
+	var sliceOfIntegers []int
+	for i := 0; i < size; i++ {
+		sliceOfIntegers = append(sliceOfIntegers, i)
+	}
+	return sliceOfIntegers
 }
