@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 // Simple first implementation
 // Runtime complexity: O(n)
 func one(num int, slice []int) (int, int) {
@@ -38,7 +40,8 @@ func three(num int, slice []int) (int, int) {
 	mid := (len(slice)) / 2
 	max := len(slice)
 	min := 0
-	for i := 0; i < len(slice); i++ {
+	for i := 0; i < max; i++ {
+		showIterInfo(mid, i)
 		numberOfIterations++
 		if slice[mid] == num {
 			return mid, numberOfIterations
@@ -52,4 +55,8 @@ func three(num int, slice []int) (int, int) {
 	}
 	return -1, numberOfIterations
 
+}
+
+func showIterInfo(num int, index int) {
+	fmt.Println("#", index+1, " =", num)
 }
